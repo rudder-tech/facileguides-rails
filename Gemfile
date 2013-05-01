@@ -5,22 +5,38 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-
+group :development, :test do
+  gem 'mysql2'
+  gem 'rspec-rails', '2.11.0'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  # Use SCSS for stylesheets
+  gem 'sass-rails', '3.2.6'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  # Use CoffeeScript for .js.coffee assets and views
+  gem 'coffee-rails', '3.2.2'
 
-  gem 'uglifier', '>= 1.0.3'
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '2.0.1'
 end
 
-gem 'jquery-rails'
+# Use jquery as the JavaScript library
+gem 'jquery-rails', '2.2.1'
+
+group :test do
+  gem 'capybara', '1.1.2'
+end
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+#gem 'turbolinks'
+
+# Used in Heroku cloud service
+group :production do
+  gem 'pg', '0.12.2'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -32,7 +48,9 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
+# gem 'capistrano', group: :development
 # gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
+# gem 'debugger', group: [:development, :test]
